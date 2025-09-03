@@ -7,7 +7,20 @@
  */
 int strlen(char *str) {
     //Implement me!
-    return 0;
+    if(str == NULL){
+        printf("NULL pointer!");
+        return 0;
+    }
+    char string_char = str[0];
+    int str_length = 0;
+    int string_iterator = 0;
+
+    while(string_char != '\0'){
+        str_length++;
+        string_char = str[++string_iterator];
+    }
+    
+    return str_length;
 }
 
 /**
@@ -15,7 +28,7 @@ int strlen(char *str) {
  * @param str pointer to the string to print
  */
 void puts(char *str) {
-    if (str) {
+    if (str == NULL) {
         printf("NULL pointer!\n");
         return;
     }
@@ -32,9 +45,9 @@ void puts(char *str) {
  */
 void main(void) {
     char buf[128] = {0};
-    int year = 1970;
+    int year = 2025;
 
-    *((char *) 0xB8000) = 'A';
+    *((char *) 0xB8000) = 'W';
 
     printf("Hello, world!\n");
     printf("Welcome to %s!\n", OS_NAME);
